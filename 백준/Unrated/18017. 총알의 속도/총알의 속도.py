@@ -1,0 +1,1 @@
+a,b=map(float,input().split());print((b+a)/(1+b*a/299792458**2))
