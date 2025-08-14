@@ -4,10 +4,11 @@
 using namespace std;
 ll N, M, arr[100005], chk[100005], x;
 ll f(ll st, ll now){
-    //cout << st << " " << now << "\n";
     if (st==now)
         return st;
     else if (chk[now]==-1)
+        return -1;
+    else if (chk[now]!=INF && chk[now]>0)
         return -1;
     else if (chk[now]==INF){
         x=now;
@@ -36,8 +37,6 @@ int main(){
                 chk[i]=f(i,arr[i]);
             ans+=(chk[i]==-1);
         }
-        // for (int i=1;i<=M;i++)
-        //     cout << chk[i] << " ";
         cout << ans << "\n";
     }
     return 0;
