@@ -4,13 +4,9 @@ using namespace std;
 ll N, M;
 ll f(ll num){
     ll ret=0;
-    vector<ll> v;
-    for (int i=0;i<10;i++){
-        if (i==0)
-            v.push_back(0);
-        else
-            v.push_back(v[i-1]+i);
-    }
+    vector<ll> v(1,0);
+    for (int i=1;i<10;i++)
+        v.push_back(v[i-1]+i);
     for (ll i=1;i<=num;i*=10){
         ll hi=num/(i*10), x=(num%(i*10))/i, lo=num%i;
         ret+=v[9]*i*hi;
